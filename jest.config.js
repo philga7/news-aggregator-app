@@ -5,6 +5,7 @@ module.exports = {
       '^@/(.*)$': '<rootDir>/app/$1',
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-    testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+    testMatch: ['**/tests/unit/**/*.test.[jt]s?(x)'],
+    testPathIgnorePatterns: ['/node_modules/', '/tests/e2e/'],
     collectCoverageFrom: ['app/**/*.ts', 'app/**/*.tsx'],
   };
