@@ -1,6 +1,5 @@
-import { fetchFeedOne } from './utils/feeds/feedOne';
-import { FeedItem } from './utils/feedFetcher';
-
+import { fetchFeedOne } from '../utils/feeds/feedOne';
+import { FeedItem } from '@/types/feedItem';
 
 export default async function Home() {
     // Fetch the feed directly in the server component

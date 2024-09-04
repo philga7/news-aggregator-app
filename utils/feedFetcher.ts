@@ -1,10 +1,5 @@
 import Parser from 'rss-parser';
-
-export interface FeedItem {
-    title: string;
-    link: string;
-    source: string;
-}
+import { FeedItem } from '../types/feedItem';
 
 const parser = new Parser();
 
