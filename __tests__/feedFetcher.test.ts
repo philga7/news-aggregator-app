@@ -1,4 +1,5 @@
-import { fetchFeed, FeedItem } from '../utils/feedFetcher';
+import { fetchFeed } from '../utils/feedFetcher';
+import { FeedItem } from '@/types/feedItem';
 import Parser from 'rss-parser';
 
 // Mocking the rss-parser package

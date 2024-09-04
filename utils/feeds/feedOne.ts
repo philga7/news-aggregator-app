@@ -1,4 +1,5 @@
-import { fetchFeed, FeedItem } from '../feedFetcher';
+import { fetchFeed } from '../feedFetcher';
+import { FeedItem } from '@/types/feedItem';
 
 const FEED_URL = 'https://citizenfreepress.com/feed/';
 
