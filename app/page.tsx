@@ -1,5 +1,5 @@
-import { fetchFeedOne } from './utils/feeds/feedOne';
-import { FeedItem } from './utils/feedFetcher';
+import { fetchFeedOne } from '../utils/feeds/feedOne';
+import { FeedItem } from '../utils/feedFetcher';
 
 
 export default async function Home() {
