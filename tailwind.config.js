@@ -5,28 +5,36 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mono: ['Roboto Mono', 'monospace'],
+      },
+      colors: {
+        primary: '#000000',
+        secondary: '#ffffff',
+        accent: '#808080', // grayscale for accents
+      },
+    },
   },
   daisyui: {
     themes: [
       {
-        mytheme: {
-          // https://daisyui.com/theme-generator/
-          "primary": "#ff00ff",
-          "secondary": "#ff00ff",
-          "accent": "#00ffff",
-          "neutral": "#ff00ff",
-          "base-100": "#111827",
-          "info": "#0000ff",
-          "success": "#22c55e",
-          "warning": "#fde047",
-          "error": "#ff0000",
-        }
-      }
-    ]
+        brutalist: {
+          primary: '#000000',
+          secondary: '#ffffff',
+          accent: '#808080',
+          neutral: '#f5f5f5',
+          'base-100': '#ffffff',
+          info: '#000000',
+          success: '#000000',
+          warning: '#000000',
+          error: '#000000',
+        },
+      },
+    ],
   },
   plugins: [
     require('daisyui'),
   ],
-}
+};
 
