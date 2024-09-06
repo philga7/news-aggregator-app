@@ -1,5 +1,5 @@
 import Parser from 'rss-parser';
-import { FeedItem } from '../types/feedItem';
+import { FeedItem } from '@/types/feedItem';
 
 const parser = new Parser();
 

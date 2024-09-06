@@ -1,9 +1,9 @@
-import { fetchFeedOne } from '../utils/feeds/feedOne';
+import { fetchCFP_RSSFeed } from '../utils/feeds/CFP_RSSFeedScrape';
 import { FeedItem } from '@/types/feedItem';
 
 export default async function Home() {
     // Fetch the feed directly in the server component
-    let articles: FeedItem[] = await fetchFeedOne();
+    let articles: FeedItem[] = await fetchCFP_RSSFeed();
 
     return (
         <div className="container mx-auto py-8">
