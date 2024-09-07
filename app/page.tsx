@@ -1,9 +1,9 @@
-import { fetchFeedOne } from '../utils/feeds/feedOne';
+import { FEED_URL, fetchCFP_RSSFeed } from '../utils/feeds/CFP_RSSFeedScrape';
 import { FeedItem } from '@/types/feedItem';
 
 export default async function Home() {
     // Fetch the feed directly in the server component
-    let articles: FeedItem[] = await fetchFeedOne();
+    let articles: FeedItem[] = await fetchCFP_RSSFeed();
 
     return (
         <div className="container mx-auto py-8">
@@ -13,7 +13,7 @@ export default async function Home() {
                         <a href={article.link} className="font-bold hover:underline" target="_blank" rel="noopener noreferrer" data-tid="articleLink">
                             {article.title}</a>
                         <p className="text-sm text-accent">
-                            {article.source}
+                            <a href={FEED_URL} target="_blank" rel="noopener noreferrer" data-tid="sourceLink">{article.source}</a>
                         </p>
                     </li>
                 ))}
