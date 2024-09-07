@@ -1,4 +1,4 @@
-import { fetchCFP_RSSFeed } from '../utils/feeds/CFP_RSSFeedScrape';
+import { FEED_URL, fetchCFP_RSSFeed } from '../utils/feeds/CFP_RSSFeedScrape';
 import { FeedItem } from '@/types/feedItem';
 
 export default async function Home() {
@@ -13,7 +13,7 @@ export default async function Home() {
                         <a href={article.link} className="font-bold hover:underline" target="_blank" rel="noopener noreferrer" data-tid="articleLink">
                             {article.title}</a>
                         <p className="text-sm text-accent">
-                            {article.source}
+                            <a href={FEED_URL} target="_blank" rel="noopener noreferrer" data-tid="sourceLink">{article.source}</a>
                         </p>
                     </li>
                 ))}
