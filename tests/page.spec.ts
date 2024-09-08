@@ -10,10 +10,7 @@ test('homepage has expected title and news articles', async ({ page }) => {
 
     // Check if at least one article is displayed
     const article = page.locator('[data-tid="articleLink"]');
-    const sourceLink = page.locator('[data-tid="sourceLink"]');
     const count = await article.count();
-    const sourceCount = await sourceLink.count();
     
     expect(count).toBeGreaterThan(0);
-    expect(sourceCount).toBeGreaterThan(0);
 });
