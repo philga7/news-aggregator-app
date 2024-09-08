@@ -1,4 +1,4 @@
-import { fetchCFP_RSSFeed } from "./feeds/cfp_RSSFeedScrape";
+import { fetchCFP_RSSFeed } from "./feeds/CFP_RSSFeedScrape";
 import { fetchAPINewsUSHeadlines } from "./feeds/apiNews_us_headlines_APIFeed";
 
 export const fetchAllFeeds = async () => {
