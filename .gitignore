@@ -28,6 +28,12 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# Postgres Docker
+db/pgdata/
+
+# Python
+backend/__pycache__/
+
 # vercel
 .vercel
 

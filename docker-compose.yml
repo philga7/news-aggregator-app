@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=${POSTGRES_URL}
+    volumes:
+      - ./backend:/app
+    command: python app.py  # Run the scraper automatically
+
+  db:
+    image: postgres:14
+    env_file:   # This will load the variables from the .env file
+      - .env.local
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"  # Use port from .env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
+      interval: 10s
+      retries: 5
