@@ -1,13 +1,14 @@
 from scraper import extract_article_urls, scrape_article
 from database import session, news_table
 from sqlalchemy import insert
+import os
 import uuid
+
+API_KEY = os.getenv('NEWSAPI_KEY')
 
 # List of news site URLs to scrape
 NEWS_SITE_URLS = [
-    'https://example-news-site-1.com',
-    'https://example-news-site-2.com',
-    'https://example-news-site-3.com'
+    f"https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}",
 ]
 
 def save_article(article_data):

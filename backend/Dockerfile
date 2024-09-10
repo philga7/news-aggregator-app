@@ -11,4 +11,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Run the application (this is optional depending on how you'd like to start it)
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]

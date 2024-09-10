@@ -1,3 +1,4 @@
-newspaper3k=0.2.8
-psycopg2=2.9.9
-SQLAlchemy=2.0.34
+newspaper3k==0.2.8
+psycopg2==2.9.9
+SQLAlchemy==2.0.34
+lxml_html_clean==0.2.0

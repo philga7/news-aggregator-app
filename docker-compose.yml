@@ -1,13 +1,16 @@
 services:
   backend:
-    build: ./backend
-    depends_on:
-      - db
-    environment:
-      - DATABASE_URL=${POSTGRES_URL}
-    volumes:
-      - ./backend:/app
-    command: python app.py  # Run the scraper automatically
+      build: ./backend
+      depends_on:
+        db:
+          condition: service_healthy
+      environment:
+        - DATABASE_URL=${POSTGRES_URL}
+      volumes:
+        - ./backend:/app
+      env_file:
+        - .env.local
+      command: python app.py
 
   db:
     image: postgres:14
@@ -16,9 +19,10 @@ services:
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"  # Use port from .env
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
-      - ./init:/docker-entrypoint-initdb.d/
+      - ./db/pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d/
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
       interval: 10s
+      timeout: 5s
       retries: 5
