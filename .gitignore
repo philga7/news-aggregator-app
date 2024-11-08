@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+# python
+backend/analyze/__pycache__/
+
 # production
 /build
 
@@ -27,6 +30,12 @@ yarn-error.log*
 
 # local env files
 .env*.local
+
+# Mongo
+/backend/mongo-data/
+
+# Python
+/backend/__pycache__/
 
 # vercel
 .vercel
