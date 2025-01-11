@@ -49,4 +49,4 @@ jobs:
         run: pnpm install
       - name: Deploy to Vercel
         run: |
-          npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+          npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
