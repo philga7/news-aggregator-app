@@ -3,6 +3,7 @@ module.exports = {
     testEnvironment: 'node',
     moduleNameMapper: {
       '^@/(.*)$': '<rootDir>/app/$1',
+
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
