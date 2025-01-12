@@ -48,10 +48,13 @@ export async function GET() {
         // Parse the RSS feed
         const feed = await parser.parseString(xmlData);
 
+        // Skip scraping in production if the flag is set
+        const isBuild = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SKIP_SCRAPING === 'true';
+
         // Process feed items with scraping for original URLs
         const items: FeedItem[] = await Promise.all(
             feed.items?.map(async (item) => {
-            const originalURL = await scrapeOriginalURL(item.link || '');
+            const originalURL = isBuild ? item.link : await scrapeOriginalURL(item.link || '');
             return {
                 title: item.title || 'No Title',
                 link: originalURL || item.link || '',
