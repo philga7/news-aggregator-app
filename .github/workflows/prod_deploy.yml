@@ -27,12 +27,15 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: Build Project
-        run: NEXT_PUBLIC_SKIP_SCRAPING=true pnpm build
+        run: |
+          NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }} \
+          NEXT_PUBLIC_SKIP_SCRAPING=${{ secrets.NEXT_PUBLIC_SKIP_SCRAPING }} \
+          pnpm build
 
       - name: Start the server and run E2E Tests
         run: |
           pnpm start &  # Start the production server in the background
-          npx wait-on http://localhost:3000  # Wait until the server is ready
+          npx wait-on ${{ secrets.NEXT_PUBLIC_BASE_URL }}  # Wait until the server is ready
           pnpm test:e2e     # Run Playwright E2E tests
   
   deploy:
