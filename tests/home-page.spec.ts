@@ -6,7 +6,7 @@ test('homepage has expected title and news articles', async ({ page }) => {
     await page.goto('http://localhost:3000');
 
     // Check if the title contains 'News'
-    await expect(page).toHaveTitle(/News/);
+    await expect(page).toHaveTitle(/News Aggregator/);
 
     // Check if at least one article is displayed
     const article = page.locator('[data-tid="articleLink"]');

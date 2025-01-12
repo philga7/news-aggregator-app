@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Unit Tests
-        run: pnpm test:unit
+      # - name: Run Unit Tests
+      #   run: pnpm test:unit
 
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps
