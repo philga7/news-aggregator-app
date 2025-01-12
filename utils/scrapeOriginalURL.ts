@@ -10,6 +10,7 @@ export async function scrapeOriginalURL(pageURL: string): Promise<string> {
     try {
       const { data } = await axios.get(pageURL, {
         headers: { 'User-Agent': 'News Aggregator Bot' },
+        timeout: 5000,  // Prevent hanging requests
       });
   
       const $ = cheerio.load(data);
