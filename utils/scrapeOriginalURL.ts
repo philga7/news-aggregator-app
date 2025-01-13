@@ -23,7 +23,14 @@ export async function scrapeOriginalURL(pageURL: string): Promise<string> {
   
       return externalLink || pageURL; // Fallback to original link if scraping fails
     } catch (error) {
-      console.error(`Error scraping original URL from ${pageURL}:`, error);
+      if (axios.isAxiosError(error)) {
+        console.error(`Axios Error while scraping ${pageURL}:`, error.message);
+      } else if (error instanceof AggregateError) {
+        console.error(`AggregateError while scraping ${pageURL}:`, error.errors);
+      } else {
+        console.error(`Unexpected Error while scraping ${pageURL}:`, error);
+      }
+
       return pageURL;
     }
 }
