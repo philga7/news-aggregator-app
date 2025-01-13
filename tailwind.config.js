@@ -10,6 +10,8 @@ module.exports = {
         mono: ['Roboto Mono', 'monospace'],
       },
       colors: {
+        'custom-bg': '#000000',
+        'custom-text': '#FFFFFF',
         primary: '#000000',
         secondary: '#ffffff',
         accent: '#808080', // grayscale for accents
